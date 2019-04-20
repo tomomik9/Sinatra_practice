@@ -1,2 +1,4 @@
 # sinatra_practice
-Fjord Bootcampの課題(Sinatra入門)
+Fjord Bootcampの課題用リポジトリです。(Sinatra入門)
+
+
