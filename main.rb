@@ -68,14 +68,14 @@ get '/edit/:id' do
 end
 
 patch '/edit/:id' do
-  new_memo = { id: params[:id].to_s, title: params[:title]\
+  new_hash = { id: params[:id].to_s, title: params[:title]\
   , content: params[:content] }
   @memos.each_with_index do |memo, index|
     if index.to_s == params[:id]
       if params[:title] != ''
-        memo[:title] = new_memo[:title]
+        memo[:title] = new_hash[:title]
       elsif params[:content] != ''
-        memo[:content] = new_memo[:content]
+        memo[:content] = new_hash[:content]
       end
     end
   end
