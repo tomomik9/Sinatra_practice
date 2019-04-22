@@ -27,9 +27,9 @@ get '/' do
   erb :index
 end
 
-get '/get/:id' do
+get '/details/:id' do
   @memo = memo(params[:id])
-  erb :get
+  erb :details
 end
 
 get '/new' do

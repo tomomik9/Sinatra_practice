@@ -6,7 +6,7 @@
 <ul>
   <% @memos.each do |memo| %>
     <li>
-        <a href="/get/<%= memo["id"]%>">
+        <a href="/details/<%= memo["id"]%>">
         <%= memo['title']%>
         </a>
     </li>
