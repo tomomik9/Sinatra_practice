@@ -2,10 +2,6 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'json'
 
-configure do
-  enable :method_override
-end
-
 before do
   @json_data = File.open('memo.json') do |file|
     JSON.parse(file.read)
@@ -31,9 +27,9 @@ get '/' do
   erb :index
 end
 
-get '/show/:id' do
+get '/get/:id' do
   @memo = memo(params[:id])
-  erb :show
+  erb :get
 end
 
 get '/new' do
@@ -45,8 +41,7 @@ post '/new' do
   @memos.each_with_index do |_memo, index|
     last_index = index + 1
   end
-  new_hash = { id: last_index, title: params[:title]\
-  , content: params[:content] }
+  new_hash = { id: last_index, title: params[:title], content: params[:content] }
   @memos = @memos.push(new_hash)
   update_json
   redirect to('/')
@@ -68,8 +63,7 @@ get '/edit/:id' do
 end
 
 patch '/edit/:id' do
-  new_hash = { id: params[:id].to_s, title: params[:title]\
-  , content: params[:content] }
+  new_hash = { id: params[:id].to_s, title: params[:title], content: params[:content] }
   @memos.each_with_index do |memo, index|
     if index.to_s == params[:id]
       if params[:title] != ''
