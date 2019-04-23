@@ -48,7 +48,7 @@ post '/new' do
   erb :index
 end
 
-delete '/delete/:id' do
+delete '/:id' do
   @memos.each_with_index do |_memo, index|
     @memos.delete_at(index) if index.to_s == params[:id].to_s
   end
@@ -57,12 +57,12 @@ delete '/delete/:id' do
   erb :index
 end
 
-get '/edit/:id' do
+get '/updates/:id' do
   @memo = memo(params[:id])
-  erb :edit
+  erb :updates
 end
 
-patch '/edit/:id' do
+patch '/updates/:id' do
   new_hash = { id: params[:id].to_s, title: params[:title], content: params[:content] }
   @memos.each_with_index do |memo, index|
     if index.to_s == params[:id]

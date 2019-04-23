@@ -3,9 +3,9 @@
 <p class="details"><%= @memo["title"]%></p>
 <p>メモ内容</p>
 <p class="details"><%= @memo["content"]%></p>
-<form method="post" action="/delete/<%= @memo['id'] %>">
+<form method="post" action="/<%= @memo['id'] %>">
     <input type="hidden" name="_method" value="DELETE">
     <input type="submit" value="削除" class="submit_button"></button>
 </form>
-  <a href="/edit/<%= @memo['id'] %>"><input type="submit" value="編集画面へ" class="submit_button"></button></a><br>
+  <a href="/updates/<%= @memo['id'] %>"><input type="submit" value="編集画面へ" class="submit_button"></button></a><br>
 <a href="/">トップページ</a>
