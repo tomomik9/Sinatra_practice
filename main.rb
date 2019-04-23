@@ -62,7 +62,7 @@ get '/updates/:id' do
   erb :updates
 end
 
-patch '/updates/:id' do
+patch '/:id' do
   new_hash = { id: params[:id].to_s, title: params[:title], content: params[:content] }
   @memos.each_with_index do |memo, index|
     if index.to_s == params[:id]
