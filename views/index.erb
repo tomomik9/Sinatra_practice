@@ -6,11 +6,9 @@
 <ul>
   <% @memos.each do |memo| %>
     <li>
-        <a href="/show/<%= memo["id"]%>">
+        <a href="/details/<%= memo["id"]%>">
         <%= memo['title']%>
         </a>
     </li>
   <% end %>
 </ul>
-
-

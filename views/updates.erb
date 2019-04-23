@@ -1,5 +1,5 @@
 <h1>Edit Memo</h1>
-<form method="post" action="/edit/<%= @memo["id"] %>">
+<form method="post" action="/<%= @memo["id"] %>">
     <p>メモタイトル</p>
     <input type="text" name="title" placeholder=" <%= @memo["title"] %>" class="edit_title">
     <p>メモ内容</p>
